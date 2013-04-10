@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en-US" ng-app="CartApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="controller.js"></script>
+</head>
+<body ng-controller="CartController">
+<div ng-repeat="item in items">
+    <span>{{ item.title }}</span>
+    <input ng-model="item.quantity">
+    <span> {{ item.quantity * item.price  | currency }}</span>
+    <button ng-click="remove($index)">remove</button>
+</div>
+
+<form ng-submit="requestFunding()" ng-controller="StartUpController">
+    <input ng-model="funding.startingEstimate">
+    Recommendation: {{ funding.needed }}
+    <button>Fund me</button>
+    <button ng-click="reset()">Reset</button>
+</form>
+
+</body>
+</html>
